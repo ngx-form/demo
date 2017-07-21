@@ -1,0 +1,15 @@
+<h1>
+  {{title}}
+</h1>
+
+<!-- example.component.html -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()" role="form" novalidate>
+  <ngx-form-element
+    [form]="form"
+    [model]="rows[0]"
+    [config]="simple[0]"
+
+    (created)="created($event)"
+    (destroyed)="destroyed($event)"
+  ></ngx-form-element>
+</form>
