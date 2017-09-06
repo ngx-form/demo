@@ -1,11 +1,16 @@
+// external
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // added
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // added
+import { MaterialModule } from '@angular/material';
+
+// @ngx-form
+import { FormMaterialModule } from '@ngx-form/material'; // added
+import { FormElementModule } from '@ngx-form/element'; // added
+
+// internal
 import { AppComponent } from './app.component';
-import { FormMaterialModule } from '@ngx-form/material';
-import { FormElementModule } from '@ngx-form/element';
 
 @NgModule({
   declarations: [
@@ -13,12 +18,13 @@ import { FormElementModule } from '@ngx-form/element';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    HttpModule,
-    ReactiveFormsModule,
+    BrowserAnimationsModule, // added
+    FormsModule, // added
+    ReactiveFormsModule, // added
+    MaterialModule,
 
-    FormElementModule.forRoot(),
-    FormMaterialModule
+    FormElementModule.forRoot(), // added
+    FormMaterialModule // added
   ],
   providers: [],
   bootstrap: [AppComponent]

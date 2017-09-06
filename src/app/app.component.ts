@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
-import { ArrayFormElementInterface } from '@ngx-form/interface';
+// external
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms'; // added
+import { FormElementInterface } from '@ngx-form/interface'; // added
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,11 @@ import { ArrayFormElementInterface } from '@ngx-form/interface';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  title = 'app works!';
+  title = 'app';
+  // added
   form: FormGroup;
-  simple: ArrayFormElementInterface = [
+  // added
+  simple: FormElementInterface =
     {
       attributes: {
         autocomplete: 'off',
@@ -35,8 +37,7 @@ export class AppComponent implements AfterViewInit {
       element: 'input',
       focus: true,
       key: 'firstname'
-    }
-  ];
+    };
   rows: Array<any>  = [
     {
       _id: 1,
@@ -55,6 +56,7 @@ export class AppComponent implements AfterViewInit {
     }
   ];
 
+  // added
   constructor(
     protected formBuilder: FormBuilder,
     protected changeDetectorRef: ChangeDetectorRef
@@ -62,18 +64,22 @@ export class AppComponent implements AfterViewInit {
     this.form = this.formBuilder.group({});
   }
 
+  // added
   created($event) {
     this.changeDetectorRef.detectChanges();
   }
 
+  // added
   destroyed($event) {
     this.changeDetectorRef.detectChanges();
   }
 
+  // added
   onSubmit($event) {
     console.log(this.form.get('firstname'))
   }
 
+  // added
   ngAfterViewInit() {
     this.changeDetectorRef.detectChanges();
   }
